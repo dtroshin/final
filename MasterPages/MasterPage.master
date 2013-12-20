@@ -1,0 +1,132 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPages_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Styles/Style.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+		<!--
+
+        function roll(img_name, img_src) {
+            document[img_name].src = img_src;
+        }
+
+		//-->
+	</script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table class="main">
+			<tr>
+				<td class="header" colspan="3" valign="bottom">
+                    <asp:ContentPlaceHolder ID="MenuContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <div>
+                    <img src="../images/nav/spacer.gif"alt="spacer" />
+                        <a href="../Default.aspx"><img src="../images/nav/home.gif" width="120px" alt="Home" /></a>
+                        <a href="../About.aspx"><img src="../images/nav/about.gif" width="120px" alt="About" /></a>
+                        <a href="../Admissions.aspx"><img src="../images/nav/admissions.gif" width="120px" alt="Admissions" /></a>
+                        <a href="../Programs.aspx"><img src="../images/nav/programs.gif" width="120px" alt="Programs" /></a>
+                        <a href="../eCampus.aspx"><img src="../images/nav/e-learning.gif" width="120px" alt="eCampus" /></a> 
+                        <a href="../Default.aspx"><img src="../images/nav/media.gif" width="120px" alt="Media" /></a> 
+                        <a href="../Default.aspx"><img src="../images/nav/faq.gif" width="120px" alt="faq" /></a>
+                        <a href="../Contact.aspx"><img src="../images/nav/contact.gif" width="120px" alt="contact" /></a>
+                        <img src="../images/nav/spacer.gif" alt="spacer" />
+                        </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <asp:Panel ID="Panel1" runat="server">
+                        <div class="title">Sign In Here</div>
+                        <asp:Label ID="lblUser" runat="server" Text="Username:"></asp:Label>
+                        <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="lblPass" runat="server" Text="Password:"></asp:Label>
+                        <asp:TextBox ID="txtPass" runat="server"></asp:TextBox>
+                        <p>
+                            <asp:Button ID="btnLogin" runat="server" Text="Submit" 
+                                onclick="btnLogin_Click" />
+                        </p>
+                        <p>
+                            <asp:Label ID="lblWrong" runat="server"></asp:Label>
+                        </p>
+
+
+                    </asp:Panel>
+                    
+                    <br style="clear: right" /><br />
+	
+                    <div class="title">Featured Programs</div>
+                    <br />
+					<div style="text-align:center; font-size: 14pt;">
+						<img src="../images/distanceedu.gif" width="178" height="61" alt="" /><br />
+						<ul>
+							<li>Certificates</li>
+							<li>Associate</li>
+							<li>Bachelor</li>
+						</ul>
+					</div>
+					<p align="right">
+						<span style="float:right"><a href="">Click Here for more info...</a></span>
+					</p>
+
+                    <asp:ContentPlaceHolder ID="LeftContent" runat="server"></asp:ContentPlaceHolder>
+                </td>
+
+                <td class="center" style="text-indent: 10px;">
+                    <div>
+                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+                            
+                            
+                            
+                        </asp:ContentPlaceHolder>
+                    </div>
+				    <p style="margin-left: 20px;">&nbsp;</p>
+                </td>
+                <td class="right">
+					    <div class="title">School Events</div>
+						    <ul style="list-style-type: none; font-size: 10pt; margin-left: -30px; line-height: 20px;">
+							    <li>Infragaurd Meeting - 12/16/10</li>
+							    <li>Last Day Of Class - 12/16/10</li>
+							    <li>Financial Aid Due - 12/20/10</li>
+						    </ul>
+                            <hr />
+                            <asp:Calendar ID="Calendar1" runat="server" ForeColor="Black" 
+                            BackColor="White" BorderColor="#999999" CellPadding="4" 
+                            DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" Height="180px" 
+                            onselectionchanged="Calendar1_SelectionChanged" Width="200px">
+                                <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                                <NextPrevStyle VerticalAlign="Bottom" />
+                                <OtherMonthDayStyle ForeColor="#808080" />
+                                <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                                <SelectorStyle BackColor="#CCCCCC" />
+                                <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                                <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                <WeekendDayStyle BackColor="#FFFFCC" />
+                        </asp:Calendar>
+                        <hr />
+                        <div class="title">Our Students</div>
+						<p style="text-align: center;"><a href="http://srv13.fountainheadcollege.com">View Student Web Portfolios</a></p>
+                            <asp:ContentPlaceHolder ID="RightContent" runat="server"></asp:ContentPlaceHolder>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="footer" colspan="3">
+					<a href="">Link 1</a>
+					<a href="">Link 2</a><br />
+					&copy; 2011 Fountainhead College of Technology - Dmitry Troshin
+				</td>
+			</tr>
+		</table>
+    </form>
+</body>
+</html>
